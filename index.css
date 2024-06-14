@@ -1,0 +1,775 @@
+html {
+    font-size: 16px;
+}
+* {
+    padding: 0;
+    margin: 0;
+    font-family: ocr-a-std, monospace;
+    font-style: normal;
+    font-weight: 400;
+    scroll-behavior: smooth;
+}
+body {
+    background-color: #030000;
+    background-image: url("img/b6.jpg");
+    background-size: contain;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+footer {
+    position: absolute;
+    top: 150%;
+    left: 0;
+    right: 0;
+}
+footer div {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    line-height: 20px;
+    align-items: center;
+    font-size: 10px;
+}
+
+blur {
+    width: 100%;
+    height: 30rem;
+    background-color: black;
+    position: absolute;
+    top: 35%;
+    filter: blur(10px) brightness(0.3);
+    opacity: 0.5;
+}
+.blackhole {
+    width: 100%;
+    height: 100%;
+    transform: rotate(180deg);
+    position: absolute;
+    top: -320px;
+    left: 0;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.7);
+    opacity: 0.8;
+}
+
+/* .shuttlemove {
+    position: absolute;
+    background-color: transparent;
+    width: 55rem;
+    height: 55rem;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+.shuttle {
+    display: none;
+    position: absolute;
+    width: 90%;
+    height: auto;
+    top: 5%;
+    right: -25%;
+    transform: rotate(0deg);
+    animation: moveshuttle 2s alternate;
+}
+@keyframes moveshuttle {
+    0% {
+        transform: translate(100%, 100%) rotate(0deg);
+    }
+    100% {
+        transform: translateX(0%, 0%) rotate(0deg);
+    }
+}
+ */
+#all {
+    position: relative;
+    transition: transform 2s ease;
+}
+
+body.no-scroll {
+    overflow: hidden;
+}
+
+#spaceBackground {
+    position: relative;
+    transition: transform 2s ease;
+    height: 100vh;
+    width: 100vw;
+}
+
+.NameContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    top: 10%;
+    left: 50%;
+}
+
+.FirstNames,
+.LastNames {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.FirstName,
+.FirstNameStars {
+    width: 21rem;
+    height: auto;
+}
+
+.LastName {
+    width: 35rem;
+    height: auto;
+}
+.LastNameStars {
+    width: 34rem;
+    height: auto;
+    padding-right: 12px;
+}
+.FirstNameStars,
+.LastNameStars {
+    position: absolute;
+    animation: twinkle 0.7s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.satelliteElements {
+    transform: translate(40rem, 10rem);
+    width: 13rem;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.satelliteElements:hover {
+    transform: translate(40rem, 10rem) scale(1.1) rotate(-60deg);
+}
+
+.shuttleElements {
+    transform: translate(24rem, 17rem);
+    width: 16rem;
+    height: 16rem;
+    position: relative;
+}
+.shuttleElements:hover {
+    transform: translate(24rem, 17rem) scale(1.1);
+}
+.shuttleImg,
+.shuttleImg2 {
+    width: 15rem;
+    height: auto;
+}
+
+.ufoElements {
+    transform: translate(8rem, 17rem);
+    width: 14rem;
+    height: 14rem;
+    position: relative;
+    border-radius: 50%;
+}
+.ufoElements:hover {
+    transform: translate(8rem, 17rem) scale(1.1);
+}
+.ufoImg,
+.ufoImg2 {
+    width: 14rem;
+}
+.names {
+    position: absolute;
+    left: 50%;
+    top: -20%;
+    transform: translate(-50%, -50%);
+    text-decoration: none;
+    font-size: 1.5rem;
+    color: white;
+    background-color: #0e1212;
+    padding: 2px;
+    pointer-events: none;
+    font-weight: bold;
+    letter-spacing: 1px;
+    z-index: 7687686;
+}
+
+.shuttleTitle {
+    top: 8%;
+}
+.satelliteTitle {
+    top: -6rem;
+}
+.ufoTitle {
+    top: 1.5rem;
+}
+.spaceShipsImgs2,
+.spaceShipsImgs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+}
+.satelliteImg,
+.satelliteImg2 {
+    width: 13rem;
+    height: auto;
+    transform: translate(-50%, -50%) rotate(-60deg);
+}
+.planets {
+    width: 105rem;
+    height: 105rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transform: translate(-50%, -50%);
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.mercuryDiv {
+    width: 40rem;
+    height: 40rem;
+    border: 1px solid white;
+    border-radius: 100%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.mercuryElements {
+    width: 6.7rem;
+    height: 6.7rem;
+    transform: translate(22rem, -13rem);
+    border-radius: 50%;
+}
+
+.venusDiv {
+    width: 65rem;
+    height: 65rem;
+    border: 1px solid white;
+    border-radius: 100%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.venusElements {
+    width: 8.7rem;
+    height: 8.7rem;
+    transform: translate(33rem, -20rem);
+    border-radius: 50%;
+}
+
+.venusDiv .venusImg,
+.venusDiv .venusImg2 {
+    width: 12rem;
+    height: 9rem;
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.earthDiv {
+    width: 90rem;
+    height: 90rem;
+    border: 1px solid white;
+    border-radius: 100%;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.earthElements {
+    width: 9.7rem;
+    height: 9.7rem;
+    transform: translate(44rem, -25rem);
+    border-radius: 50%;
+}
+.planetsImgs,
+.planetsImgs2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    border-radius: 50%;
+}
+
+.earthImg2,
+.venusImg2,
+.mercuryImg2 {
+    z-index: 2;
+}
+
+.earthImg,
+.earthImg2 {
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+}
+
+.mercuryImg,
+.mercuryImg2 {
+    width: 7rem;
+    height: 7rem;
+}
+
+.planetsElements:hover {
+    cursor: pointer;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+
+    filter: brightness(1);
+}
+.earthElements:hover {
+    transform: translate(44rem, -25rem) scale(1.1);
+}
+.mercuryElements:hover {
+    transform: translate(22rem, -13rem) scale(1.1);
+}
+.venusElements:hover {
+    transform: translate(33rem, -20rem) scale(1.1);
+}
+.sunlight {
+    box-shadow: 0 0 35px 10px rgba(255, 221, 0, 0.4); /* Subtle immediate glow */
+    filter: drop-shadow(
+        0 0 15px rgba(255, 221, 0, 0.6)
+    ); /* Creates a glowing effect around the image */
+    transition: 0.5s ease-in-out;
+}
+
+.earthElements.planetlight {
+    box-shadow: -10px 11px 19px 1px rgba(255, 221, 0, 0.5);
+}
+
+.venusElements.planetlight {
+    box-shadow: -8px 7px 19px 1px rgba(255, 221, 0, 0.4);
+}
+
+.mercuryElements.planetlight {
+    box-shadow: -8px 8px 19px 0px rgba(255, 221, 0, 0.4);
+}
+
+/* Initial state of the planet images */
+.planetsElements .planetsImgs {
+    transition:
+        filter 1s ease-out,
+        -webkit-mask-image 0.5s ease-out,
+        mask-image 0.5s ease-out;
+}
+
+/* Toggled state for Earth when the sun is clicked */
+.earthElements.planetlight .earthImg {
+    -webkit-mask-image: linear-gradient(
+        to bottom left,
+        black 45%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0) 55%
+    );
+    mask-image: linear-gradient(
+        to bottom left,
+        black 45%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0) 55%
+    );
+    -webkit-filter: brightness(50%);
+    filter: brightness(50%);
+}
+
+/* Toggled state for Venus when the sun is clicked */
+.venusElements.planetlight .venusImg {
+    -webkit-mask-image: linear-gradient(
+        to yop right,
+        black 45%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0) 55%
+    );
+    mask-image: linear-gradient(
+        to top right,
+        black 45%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0) 55%
+    );
+    -webkit-filter: brightness(50%);
+    filter: brightness(50%);
+}
+
+/* Toggled state for Mercury when the sun is clicked */
+.mercuryElements.planetlight .mercuryImg {
+    -webkit-mask-image: linear-gradient(
+        to bottom left,
+        black 45%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0) 55%
+    );
+    mask-image: linear-gradient(
+        to bottom left,
+        black 45%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0) 55%
+    );
+    -webkit-filter: brightness(50%);
+    filter: brightness(50%);
+}
+
+.planetsElements.planetlight .spaceShipsImgs2 {
+    filter: drop-shadow(0px 0px 0px rgba(255, 221, 0, 0.4));
+
+    -webkit-filter: drop-shadow(
+        0px -5px 5px rgba(255, 221, 0, 0.4)
+    ); /* For Safari */
+
+    display: inline-block; /* Ensure it respects width and height */
+}
+
+.ufoElements.planetlight .ufoImg,
+.shuttleElements.planetlight .shuttleImg {
+    -webkit-mask-image: linear-gradient(
+        to top,
+        black 45%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0) 55%
+    );
+    mask-image: linear-gradient(
+        to top,
+        black 45%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0) 55%
+    );
+    -webkit-filter: brightness(50%);
+    filter: brightness(40%);
+}
+.satelliteElements.planetlight .satelliteImg {
+    -webkit-mask-image: linear-gradient(
+        to top right,
+        black 45%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0) 55%
+    );
+    mask-image: linear-gradient(
+        to top right,
+        black 45%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0) 55%
+    );
+    -webkit-filter: brightness(40%);
+    filter: brightness(40%);
+}
+
+#all .sunCon {
+    width: 20rem;
+    height: 20rem;
+    overflow: hidden;
+    border-radius: 50%;
+    position: relative;
+    z-index: 99;
+}
+.sunCon .sun {
+    width: 25.5rem;
+    height: 25.5rem;
+    z-index: 1;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    font-size: 3rem;
+    color: white;
+    background-color: black;
+    position: absolute;
+    top: 10%;
+}
+
+.close {
+    color: black;
+    top: 5%;
+    right: 5%;
+    position: absolute;
+    border-radius: 10px;
+    font-size: 5rem;
+    cursor: pointer;
+    background: unset;
+    border: unset;
+    color: #ccc;
+}
+
+.close:hover {
+    transform: scale(1.3);
+    transition: transform 1s ease;
+}
+
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+    html {
+        font-size: 6px;
+    }
+    /*  .blur {
+        width: 100%;
+        height: 30rem;
+        background-color: black;
+        position: absolute;
+        top: 35%;
+        filter: blur(20px);
+        opacity: 0.7;
+    } */
+    .blackhole {
+        width: 100%;
+        height: 100%;
+        transform: rotate(180deg);
+        position: absolute;
+        top: -340px;
+        left: 0;
+        object-fit: cover;
+        z-index: -20;
+    }
+    .mercuryName {
+        top: -25%;
+    }
+    .mercuryElements {
+        transform: translate(10rem, -20rem);
+    }
+    .mercuryElements:hover {
+        transform: translate(10rem, -20rem) scale(1.1);
+    }
+
+    .venusElements {
+        position: relative;
+
+        transform: translate(1rem, -32rem);
+    }
+    .venusElements:hover {
+        transform: translate(1rem, -32rem) scale(1.1);
+    }
+
+    .earthElements {
+        transform: translate(7rem, -45rem);
+    }
+
+    .earthElements:hover {
+        transform: translate(7rem, -45rem) scale(1.1);
+    }
+
+    .satelliteElements {
+        transform: translate(-5rem, 45rem);
+    }
+
+    .satelliteElements:hover {
+        transform: translate(-5rem, 45rem) scale(1.1);
+    }
+
+    .satelliteImg {
+        width: 12rem;
+        height: auto;
+    }
+    .shuttleElements {
+        transform: translate(1rem, 32rem);
+    }
+    .shuttleElements:hover {
+        transform: translate(1rem, 32rem) scale(1.1);
+    }
+    .shuttleImg,
+    .shuttleImg2 {
+        width: 20rem;
+        transform: translate(-10rem, -10rem) rotate(60deg);
+    }
+    .ufoElements {
+        transform: translate(-3rem, 20rem);
+    }
+    .ufoElements:hover {
+        transform: translate(-3rem, 20rem) scale(1.1);
+    }
+    .ufoImg,
+    .ufoImg2 {
+        width: 14rem;
+        height: auto;
+    }
+
+    .earthElements.planetlight .earthImg {
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            black 45%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0) 55%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            black 45%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0) 55%
+        );
+    }
+
+    /* Toggled state for Venus when the sun is clicked */
+    .venusElements.planetlight .venusImg {
+        -webkit-mask-image: linear-gradient(
+            to top,
+            black 45%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0) 55%
+        );
+        mask-image: linear-gradient(
+            to top,
+            black 45%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0) 55%
+        );
+    }
+
+    /* Toggled state for Mercury when the sun is clicked */
+    .mercuryElements.planetlight .mercuryImg {
+        -webkit-mask-image: linear-gradient(
+            to bottom,
+            black 45%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0) 55%
+        );
+        mask-image: linear-gradient(
+            to bottom,
+            black 45%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0) 55%
+        );
+    }
+
+    .sunlight {
+        box-shadow: 0 0 35px 5px rgba(255, 221, 0, 0.4);
+    }
+
+    .earthElements.planetlight {
+        box-shadow: 1px 6px 9px -1px rgba(255, 221, 0, 0.5);
+    }
+
+    .venusElements.planetlight {
+        box-shadow: 1px 6px 10px -3px rgba(255, 221, 0, 0.4);
+    }
+
+    .mercuryElements.planetlight {
+        box-shadow: 1px 8px 9px -2px rgba(255, 221, 0, 0.4);
+    }
+
+    .shuttlemove {
+        position: absolute;
+        background-color: transparent;
+        width: 65rem;
+        height: 65rem;
+        top: 25%;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+
+    .shuttle {
+        position: absolute;
+        width: 90%;
+        height: auto;
+        top: -10%;
+        right: -40%;
+        transform: rotate(-30deg) scale(1);
+        background-color: transparent;
+    }
+    .NameContainer {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        top: 38%;
+        left: 50%;
+        transform: translate(-50%, 0%);
+    }
+
+    .FirstName,
+    .LastName {
+        animation: namemove 5s alternate;
+    }
+
+    #spaceBackground {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        height: 100vh;
+
+        align-items: center;
+        width: 100vw;
+    }
+
+    .planets {
+        display: flex;
+        position: relative;
+        top: 45%;
+        overflow: hidden;
+        width: 110rem;
+        height: 110rem;
+        border-radius: 0;
+        transform: unset;
+    }
+
+    .LastName,
+    .LastNameStars {
+        margin-top: 2rem;
+    }
+    .LastNameStars {
+        padding-right: 1rem;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    html {
+        font-size: 11.1px;
+    }
+}
+
+/* tablet only */
+@media only screen and (min-width: 900px) {
+    html {
+        font-size: 9.1px;
+    }
+}
+
+@media only screen and (min-width: 1100px) and (orientation: landscape) {
+    html {
+        font-size: 12.1px;
+    }
+}
+@media only screen and (min-width: 1300px) and (orientation: landscape) {
+    html {
+        font-size: 13.1px;
+    }
+}
+@media only screen and (min-width: 1400px) and (orientation: landscape) {
+    html {
+        font-size: 13.1px;
+    }
+}
+@media only screen and (min-width: 1500px) and (orientation: landscape) {
+    html {
+        font-size: 15.1px;
+    }
+}
+@media only screen and (min-width: 1700px) and (orientation: landscape) {
+    html {
+        font-size: 17.1px;
+    }
+}

@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NASA Image and Video Library</title>
+        <link rel="stylesheet" href="../css/planets.css" />
+    </head>
+    <body>
+       <section className="nasa">
+        <header>
+            <nav id="mainNav"></nav>
+        </header>
+        <a href="#" class="closeButton" id="closeButton">&times;</a>
+        <div class="imgDiv">
+            <img src="/img/shuttle.gif" alt="Earth" class="shuttle3" />
+        </div>
+        <div class="nasa-library-container">
+            <h2>NASA Image and Video Library</h2>
+            <input type="text" id="searchInput" placeholder="Search..." />
+            <button id="searchButton">Search</button>
+            <p id="loadingMessage" style="display: none">Loading...</p>
+            <p id="errorMessage" class="error-message" style="display: none">
+                An error occurred. Please try again.
+            </p>
+            <div class="items-grid" id="itemsGrid"></div>
+        </div>
+       </section>
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const baseUrl = "https://images-api.nasa.gov/search";
+                const closeButton = document.getElementById("closeButton");
+                const searchInput = document.getElementById("searchInput");
+                const searchButton = document.getElementById("searchButton");
+                const loadingMessage =
+                    document.getElementById("loadingMessage");
+                const errorMessage = document.getElementById("errorMessage");
+                const itemsGrid = document.getElementById("itemsGrid");
+
+                const fetchItems = async () => {
+                    const query = searchInput.value;
+                    loadingMessage.style.display = "block";
+                    errorMessage.style.display = "none";
+                    itemsGrid.innerHTML = "";
+
+                    try {
+                        const response = await fetch(`${baseUrl}?q=${query}`);
+                        if (!response.ok) {
+                            throw new Error("Error fetching data");
+                        }
+                        const data = await response.json();
+
+                        data.collection.items.forEach((item, index) => {
+                            if (
+                                item.links &&
+                                item.links[0].href &&
+                                item.data &&
+                                item.data[0].title &&
+                                item.data[0].description
+                            ) {
+                                const itemCard = document.createElement("div");
+                                itemCard.className = "item-card";
+
+                                const image = document.createElement("img");
+                                image.src = item.links[0].href;
+                                image.alt = item.data[0].title;
+                                image.className = "item-image";
+
+                                const title = document.createElement("h3");
+                                title.textContent = item.data[0].title;
+
+                                const description = document.createElement("p");
+                                description.textContent =
+                                    item.data[0].description;
+
+                                itemCard.appendChild(image);
+                                itemCard.appendChild(title);
+                                itemCard.appendChild(description);
+
+                                itemsGrid.appendChild(itemCard);
+                            }
+                        });
+                    } catch (error) {
+                        errorMessage.style.display = "block";
+                        console.error(error);
+                    } finally {
+                        loadingMessage.style.display = "none";
+                    }
+                };
+
+                searchButton.addEventListener("click", fetchItems);
+
+                closeButton.addEventListener("click", e => {
+                    e.preventDefault();
+                    window.history.back();
+                });
+
+                // Trigger initial fetch
+                fetchItems();
+            });
+        </script>
+    </body>
+</html>

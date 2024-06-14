@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Page title</title>
+
+  <script async src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+  <link rel="stylesheet" type="text/css" href="../css/footer.css">
+  <link rel="stylesheet" href="../css/planets.css">
+</head>
+<body>
+  <section class="earthSection">
+    <header>
+      <nav id="mainNav">
+      </nav>
+    </header>
+
+    <a href="#" onclick="zoomOut();" class="closeButton"> &times; </a>
+
+    <div class="imgDiv">
+      <img src="../img/earth.gif" alt="Earth" class="earthImg planetsImg" loading="lazy">
+    </div>
+
+    <div class="clouds">
+      <img src="../img/cloud1.png" alt="" class="cloud cloud1" loading="lazy">
+      <img src="../img/cloud2.png" alt="" class="cloud cloud2" loading="lazy">
+      <img src="../img/cloud3.png" alt="" class="cloud cloud3" loading="lazy">
+    </div>
+
+    <p class="mainTitle">About Me</p>
+    <a href="cv.docx" download>CV <i class="fa-solid fa-download"></i></a>
+    <p>Dani Jounblat <span>From Lebanon</span></p>
+
+    <p class="paragraph">
+      MIS graduate with a passion for web development Front-end & Back-end.
+    </p>
+    <p class="pTitle">Skills</p>
+    <div class="skillsContainer">
+      <div class="column">
+        <p><i class="fa-brands fa-html5"></i> HTML</p>
+        <p><i class="fa-brands fa-css3-alt"></i> CSS</p>
+        <p><i class="fa-brands fa-js-square"></i> JS</p>
+      </div>
+      <div class="column">
+        <p><i class="fa-brands fa-php"></i> PHP</p>
+        <p><i class="fa-solid fa-database"></i> MySql</p>
+        <p><i class="fa-solid fa-database"></i> SQL</p>
+      </div>
+      <div class="column">
+        <p><i class="fa-brands fa-html5"></i> HTML</p>
+        <p><i class="fa-brands fa-css3-alt"></i> CSS</p>
+        <p><i class="fa-brands fa-js-square"></i> JS</p>
+      </div>
+    </div>
+
+    <p class="pTitle">Languages</p>
+    <div class="languages">
+      <p>Arabic <span>Fluent</span></p>
+      <p>English <span>Intermediate</span></p>
+      <p>French <span>Elementary</span></p>
+    </div>
+  </section>
+
+  <footer class="footer" id="myFooter">
+    <p class="footer-title">Copyrights @ <span>Dani Jounblat</span></p>
+  </footer>
+
+  <script async src="../js/planets.js"></script>
+</body>
+</html>

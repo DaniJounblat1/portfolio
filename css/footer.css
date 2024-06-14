@@ -1,0 +1,39 @@
+.footer {
+    background-image: url('../img/galaxy.jpg');
+    background-size:cover;  
+    color: white;
+    padding: 0.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	   padding-right: 1em;
+    width: auto;
+    height: 35px;
+    margin-top: auto;
+}
+#all .footer {
+    margin-top: 50%;
+}
+.footer-title {
+    font-size: 1.3em;
+    font-weight: 600;
+    align-items: center;
+    padding-left: 2%;
+}
+
+.footer-title span {
+    color:white;
+}
+
+@media only screen and (max-width: 769px) {
+   
+.footer {
+ margin-top: 92%;
+    
+   
+}
+.footer p{
+    font-size: 12px;
+}
+}
+        

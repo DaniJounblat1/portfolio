@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote</title>
+    <link rel="stylesheet" href="../css/quote.css">
+</head>
+<body>
+    
+    
+    <div id="quoteContainer"> </div>
+    <div class="button-container">
+        <button onclick="fetchQuote()">Get Another Quote</button>
+    </div>
+
+
+
+    <script>
+        const url = 'https://quotes15.p.rapidapi.com/quotes/random/';
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '4cb6087d4emsh821acdd8b2fb0aap1f567ajsn74a9c03da2c2', 
+                'X-RapidAPI-Host': 'quotes15.p.rapidapi.com'
+            }
+        };
+
+        async function fetchQuote() {
+            const container = document.getElementById('quoteContainer');
+            container.innerHTML = '<div class="loading">Loading...</div>';
+            try {
+                const response = await fetch(url, options);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                displayQuote(data);
+            } catch (error) {
+                console.error('Failed to fetch quote:', error);
+                container.innerHTML = '<div class="loading">Failed to fetch quote try again later or check your connection</div>';
+            }
+        }
+
+        function displayQuote(quoteData) {
+            const container = document.getElementById('quoteContainer');
+            container.innerHTML = ''; // Clear previous content
+            const quoteElement = document.createElement('div');
+            quoteElement.classList.add('quote');
+            quoteElement.innerHTML = `
+                <p>${quoteData.content}</p>
+                <p>— ${quoteData.originator.name}</p>
+            `;
+            container.appendChild(quoteElement);
+        }
+
+        // Initial fetch when the page loads
+        fetchQuote();
+    </script>
+      <script>
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          { pageLanguage: 'en', includedLanguages: 'ar', layout: google.translate.TranslateElement.InlineLayout.SIMPLE },
+          'google_translate_element'
+        );
+      }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <!-- Translate Button -->
+    <div id="google_translate_element" class="translate-button"></div>
+</body>
+</html>
