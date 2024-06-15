@@ -11,12 +11,8 @@
 
 
 
-function zoomOut() {
-    if (window.history.length > 1) {
-        window.history.back(); // Navigate back in history
-    } else {
-        window.location.href = "../index.html"; // Redirect to index page
-    }
+function zoomOut() {window.location.href = "../index.html";
+    
 }
 
  
