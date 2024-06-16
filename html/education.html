@@ -4,70 +4,77 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <title>Page title</title>
+        <title>education</title>
         <link rel="stylesheet" href="../css/planets.css" />
-        <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-        <style>
-            p {
-                margin-bottom: 8px;
-            }
-        </style>
+        <link rel="stylesheet" type="text/css" href="../css/footer.css" />
     </head>
     <body>
-        <header><nav id="mainNav"></nav></header>
-
-        <div class="venusSection">
-            <script>
-                function zoomOut() {
-                    window.location.href = "../index.html";
-                }
-            </script>
-            <a href="#" onclick="zoomOut();" class="closeButton">&times;</a>
-
-            <div class="imgDiv">
-                <img
-                    src="../img/venus.gif"
-                    alt="Venus"
-                    class="venusImg planetsImg"
-                />
+        <section>
+            <div class="venusSection">
+                <a href="#" onclick="zoomOut(event)" class="closeButton"
+                    >&times;</a
+                >
+                <div class="imgDiv">
+                    <img
+                        src="../img/venus.gif"
+                        alt="Venus"
+                        class="venusImg planetsImg"
+                    />
+                </div>
+                <p class="mainTitle venusTitle">Education</p>
+                <strong>Degree:</strong><br />
+                <p>Bachelor of Management Information Systems (MIS)</p>
+                <strong>Institution:</strong><br />
+                <p>Islamic University of Lebanon, Baalback Campus</p>
+                <strong>Duration of Study:</strong><br />
+                <p>2020 – 2023</p>
+                <strong class="strong">Relevant Coursework:</strong><br />
+                <p>
+                    Included key subjects such as Database Management, where I
+                    gained proficiency in SQL and MySQL database technologies;
+                    Web Development, which covered both front-end and back-end
+                    development skills; and Business Administration, focusing on
+                    management principles and business strategy.
+                </p>
+                <strong>General Average:</strong><br />
+                <p>
+                    70/100, indicating a solid grasp of course materials and a
+                    strong foundational knowledge in both technical and
+                    managerial disciplines.
+                </p>
             </div>
-
-            <p class="mainTitle venusTitle">Education</p>
-
-            <p>
-                <strong>Degree:</strong> <br />
-                Bachelor of Management Information Systems (MIS)
-            </p>
-            <p></p>
-            <p>
-                <strong>Institution:</strong> <br />
-                Islamic University of Lebanon, Baalback Campus
-            </p>
-            <p></p>
-            <p>
-                <strong>Duration of Study:</strong> <br />
-                2020 – 2023
-            </p>
-            <p></p>
-            <p>
-                <strong>Relevant Coursework:</strong> <br />
-                Included key subjects such as Database Management, where I
-                gained proficiency in SQL and MySQL database technologies; Web
-                Development, which covered both front-end and back-end
-                development skills; and Business Administration, focusing on
-                management principles and business strategy.
-            </p>
-            <p></p>
-            <p>
-                <strong>General Average:</strong> <br />
-                70/100, indicating a solid grasp of course materials and a
-                strong foundational knowledge in both technical and managerial
-                disciplines.
-            </p>
-            <p></p>
-        </div>
-
-        <script></script>
+            <footer class="footer" id="myFooter" style="position: relative">
+                <div>
+                    <p>Made with ❤️ and +60 ☕ in 2024</p>
+                    <a href="../files/cv.pdf" download class="cv">
+                        Download CV <i class="fa-solid fa-download"></i>
+                    </a>
+                    <div class="social-links">
+                        <span> my </span>
+                        <a
+                            href="https://github.com/danijounblat1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                        <span> and my </span>
+                        <a
+                            href="https://www.linkedin.com/in/dani-jounblat-b80075301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>
+                    </div>
+                    <p class="footer-title">
+                        Copyrights @ <span>Dani Jounblat</span>
+                    </p>
+                </div>
+            </footer>
+        </section>
+  <canvas id="starsCanvas"></canvas>
+        <script type="module" src="../js/starsBackground.js"></script>
         <script src="../js/planets.js"></script>
     </body>
 </html>

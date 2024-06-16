@@ -6,22 +6,25 @@
         <link rel="icon" href="img/logo.avif" type="image/x-icon" />
         <link rel="shortcut icon" href="img/logo.avif" type="image/x-icon" />
 
-        <link rel="stylesheet" type="text/css" href="index.css" />
+        <link rel="stylesheet" type="text/css" href="./css/index.css" />
         <link rel="stylesheet" type="text/css" href="css/footer.css" />
 
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         />
-        <title>Interactive Space</title>
+        <title>Portfolio</title>
     </head>
     <body>
         <div id="all">
-            <div class="nav"></div>
+            <div class="navbar">
+                <!-- Your navbar content -->
+            </div>
+
             <div id="spaceBackground" class="spaceBackground">
                 <div class="blackholeDiv">
                     <video autoplay muted loop class="blackhole">
-                        <source src="./img/blackhole.webm" type="video/webm" />
+                        <source src="/img/blackhole.webm" type="video/webm" />
                     </video>
                     <div class="blur"></div>
                 </div>
@@ -29,13 +32,13 @@
                     <div class="FirstNames">
                         <img
                             class="FirstName"
-                            src="./img/dani.png"
+                            src="/img/dani.png"
                             alt=""
                             loading="lazy"
                         />
                         <img
                             class="FirstNameStars"
-                            src="./img/daniStars.png"
+                            src="/img/daniStars.png"
                             alt=""
                             loading="lazy"
                         />
@@ -43,20 +46,20 @@
                     <div class="LastNames">
                         <img
                             class="LastName"
-                            src="./img/jounblat.png"
+                            src="/img/jounblat.png"
                             alt=""
                             loading="lazy"
                         />
                         <img
                             class="LastNameStars"
-                            src="./img/jounblatStars.png"
+                            src="/img/jounblatStars.png"
                             alt=""
                             loading="lazy"
                         />
                     </div>
                 </div>
                 <div class="planets" id="planets">
-                    <div class="sunCon" id="sunCon">
+                    <div class="sunCon" id="sunCon" onclick="toggleSunlight()">
                         <img
                             class="sun"
                             src="./img/fullsun.gif"
@@ -64,15 +67,10 @@
                             loading="lazy"
                         />
                     </div>
+
                     <div class="earthDiv" id="earth">
                         <div class="earthElements planetsElements">
                             <p class="names earthName">About</p>
-                            <img
-                                src="./img/earth.gif"
-                                alt="Earth"
-                                class="earthImg2 planetsImgs2"
-                                loading="lazy"
-                            />
                             <img
                                 src="./img/earth.gif"
                                 alt="Earth"
@@ -87,30 +85,19 @@
                                 Contact
                             </p>
                             <img
-                                class="zoom-target satelliteImg2 spaceShipsImgs2"
-                                src="./img/satellite.gif"
-                                alt=""
-                                loading="lazy"
-                            />
-                            <img
                                 class="zoom-target satelliteImg spaceShipsImgs"
                                 src="./img/satellite.gif"
                                 alt=""
                                 onclick="zoomIn(this)"
-                                data-zoom-target="html/contactForm.html"
+                                data-zoom-target="html/contact.html"
                                 loading="lazy"
                             />
                         </div>
                     </div>
+
                     <div class="venusDiv" id="venus">
                         <div class="venusElements planetsElements">
                             <p class="names venusName">Education</p>
-                            <img
-                                src="./img/venus.gif"
-                                loading="lazy"
-                                alt="Venus"
-                                class="venusImg2 planetsImgs2"
-                            />
                             <img
                                 src="./img/venus.gif"
                                 alt="Venus"
@@ -123,12 +110,6 @@
                         <div class="shuttleElements planetsElements">
                             <p class="names shuttleTitle">Nasa</p>
                             <img
-                                class="zoom-target shuttleImg2 spaceShipsImgs2"
-                                src="./img/shuttle.gif"
-                                alt=""
-                                loading="lazy"
-                            />
-                            <img
                                 class="zoom-target shuttleImg spaceShipsImgs"
                                 src="./img/shuttle.gif"
                                 alt=""
@@ -138,66 +119,66 @@
                             />
                         </div>
                     </div>
+
                     <div class="mercuryDiv" id="mercury">
                         <div class="mercuryElements planetsElements">
                             <p class="names mercuryName">Projects</p>
                             <img
                                 src="./img/mercury.gif"
                                 alt="Mercury"
-                                class="mercuryImg2 planetsImgs2"
-                                loading="lazy"
-                            />
-                            <img
-                                src="./img/mercury.gif"
-                                alt="Mercury"
                                 class="zoom-target mercuryImg planetsImgs"
                                 onclick="zoomIn(this)"
-                                data-zoom-target="html/project.html"
+                                data-zoom-target="html/projects.html"
                                 loading="lazy"
                             />
                         </div>
                         <div class="ufoElements planetsElements">
-                            <p class="names ufoTitle">idk</p>
-                            <img
-                                class="ufoImg2 spaceShipsImgs2"
-                                src="./img/ufo.gif"
-                                alt=""
-                                loading="lazy"
-                            />
+                            <p class="names ufoTitle">Blogs</p>
                             <img
                                 class="zoom-target ufoImg spaceShipsImgs"
                                 src="./img/ufo.gif"
                                 alt=""
                                 onclick="zoomIn(this)"
-                                data-zoom-target="html/nasa.html"
+                                data-zoom-target="html/blogs.html"
                                 loading="lazy"
                             />
                         </div>
                     </div>
                 </div>
             </div>
-            <footer>
-                <div>
-                    <p>dhdj</p>
-                    <p>djdjd</p>
-                    <p>jdjdj</p>
-                    <p className="footer-title">
-                        Copyrights @ <span>Dani Jounblat</span>
-                    </p>
+        
+        <footer class="footer" id="myFooter">
+            <div>
+                <p>Made with ❤️ and +60 ☕ in 2024</p>
+                <a href="../files/cv.pdf" download class="cv">
+                    Download CV <i class="fa-solid fa-download"></i>
+                </a>
+                <div class="social-links">
+                    <span> my </span>
+                    <a
+                        href="https://github.com/danijounblat1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i class="fab fa-github fa-2x"></i>
+                    </a>
+                    <span> and my </span>
+                    <a
+                        href="https://www.linkedin.com/in/dani-jounblat-b80075301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i class="fab fa-linkedin fa-2x"></i>
+                    </a>
                 </div>
-            </footer>
-        </div>
-        <div
-            class="stars-canvas"
-            style="
-                width: 100%;
-                height: 100%;
-                position: fixed;
-                inset: 0;
-                z-index: -10;
-            "
-        ></div>
-        <script type="module" src="js/starsBackground.js"></script>
-        <script src="script.js"></script>
+                <p class="footer-title">
+                    Copyrights @ <span>Dani Jounblat</span>
+                </p>
+            </div>
+        </footer>
+</div>
+        <canvas id="starsCanvas"></canvas>
+        <script type="module" src="./js/starsBackground.js"></script>
+        <script src="./js/index.js"></script>
     </body>
 </html>

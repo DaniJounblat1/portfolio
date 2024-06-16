@@ -1,39 +1,60 @@
-.footer {
-    background-image: url('../img/galaxy.jpg');
-    background-size:cover;  
-    color: white;
-    padding: 0.5em;
+footer div {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    color: white;
+    line-height: 20px;
     align-items: center;
-	   padding-right: 1em;
-    width: auto;
-    height: 35px;
-    margin-top: auto;
 }
-#all .footer {
-    margin-top: 50%;
+.footer p {
+    margin: 10px 0;
+}
+.cv {
+    display: block;
+    margin: 10px 0;
+    font-size: 16px;
+    text-decoration: none;
 }
 .footer-title {
     font-size: 1.3em;
-    font-weight: 600;
+color: #682ae9;
     align-items: center;
-    padding-left: 2%;
+    padding-left: 3rem;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0;
+}
+.social-links span {
+    font-size: 3rem;
+    text-decoration: none;
+    color: whitesmoke;
+
+    margin: 0 10px;
+    margin-right: 5px;
+}
+.social-links a {
+    text-decoration: none;
+    font-size: 2rem;
+    margin-right: 5px;
+    color: #682ae9;
 }
 
 .footer-title span {
-    color:white;
+    color: white;
 }
 
 @media only screen and (max-width: 769px) {
-   
-.footer {
- margin-top: 92%;
-    
-   
+    .footer {
+        position: absolute;
+        top: 150%;
+        left: 0;
+        right: 0;
+    }
+    .footer p {
+        font-size: 12px;
+    }
 }
-.footer p{
-    font-size: 12px;
-}
-}
-        

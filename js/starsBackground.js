@@ -1,64 +1,131 @@
-// Include Three.js library
-import * as THREE from 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js';
+import * as THREE from "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.module.js";
 
-// Generate random positions within a sphere
-function randomInSphere(numPoints, radius) {
-    const positions = new Float32Array(numPoints * 3);
-    for (let i = 0; i < numPoints; i++) {
-        const phi = Math.acos(2 * Math.random() - 1);
-        const theta = Math.PI * 2 * Math.random();
-        const x = radius * Math.sin(phi) * Math.cos(theta);
-        const y = radius * Math.sin(phi) * Math.sin(theta);
-        const z = radius * Math.cos(phi);
-        positions.set([x, y, z], i * 3);
+// Vertex shader
+const vertexShader = `
+    attribute float size;
+    varying vec3 vColor;
+
+    void main() {
+        vColor = color;
+
+        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+        gl_PointSize = size * (300.0 / -mvPosition.z);
+        gl_Position = projectionMatrix * mvPosition;
     }
-    return positions;
-}
+`;
 
-// Generate random colors
-function generateColors(numPoints) {
-    const colors = new Float32Array(numPoints * 3);
-    for (let i = 0; i < numPoints; i++) {
-        colors.set([Math.random(), Math.random(), Math.random()], i * 3);
+// Fragment shader
+const fragmentShader = `
+    uniform sampler2D pointTexture;
+    varying vec3 vColor;
+
+    void main() {
+        vec2 uv = gl_PointCoord - vec2(0.5);
+        float dist = sqrt(dot(uv, uv));
+
+        if (dist > 0.5) discard;
+
+        vec4 pointColor = texture2D(pointTexture, gl_PointCoord);
+        gl_FragColor = vec4(vColor, 1.0) * pointColor;
     }
-    return colors;
-}
+`;
 
-// Initialize the star background
-export function initStarBackground() {
-    const canvasContainer = document.querySelector('.stars-canvas');
-    if (!canvasContainer) return;
+// JavaScript code here
+// Set up Three.js scene
+let scene, camera, renderer;
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+function init() {
+    scene = new THREE.Scene();
+
+    camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+    );
     camera.position.z = 1;
 
-    const renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer({
+        canvas: document.getElementById("starsCanvas"),
+        antialias: true,
+        alpha: true // Enable transparency
+    });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    canvasContainer.appendChild(renderer.domElement);
+    renderer.setClearColor(0x000000, 0); // Set background to transparent
 
-    const numStars = 1000;
-    const starsGeometry = new THREE.BufferGeometry();
-    starsGeometry.setAttribute('position', new THREE.BufferAttribute(randomInSphere(numStars, 1.2), 3));
-    starsGeometry.setAttribute('color', new THREE.BufferAttribute(generateColors(numStars), 3));
+    const numStars = 4000;
+    const positions = new Float32Array(numStars * 3);
+    const colors = new Float32Array(numStars * 3);
+    const sizes = new Float32Array(numStars);
 
-    const starsMaterial = new THREE.PointsMaterial({ size: 0.003, vertexColors: true });
-    const stars = new THREE.Points(starsGeometry, starsMaterial);
-    scene.add(stars);
+    // Function to generate star colors close to white
+    function generateStarColor() {
+        const baseColor = 0.8 + Math.random() * 0.2; // Base color value between 0.8 and 1.0
+        return [
+            baseColor + Math.random() * 0.1, // Slight variation around the base color
+            baseColor + Math.random() * 0.1,
+            baseColor + Math.random() * 0.1
+        ];
+    }
 
+    // Generate random positions, colors, and sizes for stars
+    for (let i = 0; i < numStars; i++) {
+        positions[i * 3] = (Math.random() - 0.5) * 2; // x
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 2; // y
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 2; // z
+
+        const color = generateStarColor();
+        colors[i * 3] = color[0]; // r
+        colors[i * 3 + 1] = color[1]; // g
+        colors[i * 3 + 2] = color[2]; // b
+
+        sizes[i] = Math.random() * 0.01; // size
+    }
+
+    const geometry = new THREE.BufferGeometry();
+    geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+    geometry.setAttribute("size", new THREE.BufferAttribute(sizes, 1));
+
+    const textureLoader = new THREE.TextureLoader();
+    const spriteTexture = textureLoader.load(
+        "https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/textures/sprites/spark1.png"
+    ); // Use a circular texture
+    const material = new THREE.ShaderMaterial({
+        uniforms: {
+            pointTexture: { value: spriteTexture }
+        },
+        vertexShader: vertexShader,
+        fragmentShader: fragmentShader,
+        blending: THREE.AdditiveBlending,
+        depthTest: true,
+        transparent: true,
+        vertexColors: true
+    });
+
+    const points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    // Animation loop
     function animate() {
         requestAnimationFrame(animate);
-        stars.rotation.x -= 0.001;
-        stars.rotation.y -= 0.0015;
+
+        // Rotate stars slightly (optional)
+        points.rotation.x += 0.0005;
+        points.rotation.y += 0.001;
+
         renderer.render(scene, camera);
     }
-    animate();
 
-    window.addEventListener('resize', () => {
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-        renderer.setSize(window.innerWidth, window.innerHeight);
-    });
+    animate();
 }
 
-document.addEventListener('DOMContentLoaded', initStarBackground);
+// Initialize Three.js
+init();
+
+// Resize handling
+window.addEventListener("resize", () => {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+});

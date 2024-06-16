@@ -4,42 +4,99 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../css/planets.css" />
-        <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-        <style>
-            .p,
-            .maiTitle {
-                color: ##ff1f00;
-            }
-        </style>
-
-        <title>Page title</title>
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        />
+        <link rel="stylesheet" type="text/css" href="../css/footer.css" />
+        <title>projects</title>
 
         <link rel="stylesheet" href="../css/all.css" />
     </head>
     <body>
         <section class="mercurySection">
-            <header>
-                <nav id="mainNav"></nav>
-            </header>
-
-            <p class="mainTitle">Education</p>
-           
-
-            <a href="#" onclick="zoomOut();" class="closeButton"> &times; </a>
-
+            <p class="mainTitle">Project</p>
+            <a href="#" onclick="zoomOut(event)" class="closeButton">&times;</a>
             <div class="imgDiv">
                 <img
                     src="../img/mercury.gif"
-                    alt="mercury"
+                    alt="Mercury"
                     class="mercuryImg planetsImg"
                 />
             </div>
-        </section>
+            <div class="projectSection">
+                <div class="projectItem">
+                    <div class="laptop-container">
+                        <img src="../img/laptop.png" alt="Laptop" />
+                        <div class="slideshow-root">
+                            <div class="imgCon">
+                                <img
+                                    src="../img/ss1.jpg"
+                                    class="slideshow-image"
+                                    alt="Laptop"
+                                />
+                            </div>
+                        </div>
+                    </div>
 
+                    <h2 class="projectTitle">Samsung E-commerce Website</h2>
+                    <p class="projectInfo">
+                        This project is an e-commerce website for Samsung
+                        products, built using PHP. It showcases various products
+                        with a user-friendly interface.
+                    </p>
+                    <div class="linkContainer">
+                        <a
+                            href="https://github.com/DaniJounblat1/php-samsung-website.git"
+                            class="githubLink"
+                            >GitHub</a
+                        >
+                        <a
+                            href="https://samsungdemo.kesug.com"
+                            class="githubLink"
+                            target="_blank"
+                            >Demo</a
+                        >
+                    </div>
+                </div>
+            </div>
+            <div class="projectSection">
+                <div class="projectItem">
+                    <div class="laptop-container">
+                        <img src="./img/laptop.png" alt="Laptop" />
+                    </div>
+
+                    <h2 class="projectTitle">Working On More Projects</h2>
+                </div>
+            </div>
+            <footer class="footer" id="myFooter" style="position: relative">
+                <div>
+                    <p>Made with ❤️ and +60 ☕ in 2024</p>
+                    <a href="../files/cv.pdf" download class="cv">
+                        Download CV <i class="fa-solid fa-download"></i>
+                    </a>
+                    <div class="social-links">
+                        <span> my </span>
+                        <a
+                            href="https://github.com/danijounblat1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                        <span> and my </span>
+                        <a
+                            href="https://www.linkedin.com/in/dani-jounblat-b80075301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>
+                    </div>
+                    <p class="footer-title">
+                        Copyrights @ <span>Dani Jounblat</span>
+                    </p>
+                </div>
+            </footer>
+        </section>
+  <canvas id="starsCanvas"></canvas>
+        <script type="module" src="../js/starsBackground.js"></script>
         <script src="../js/planets.js"></script>
     </body>
 </html>

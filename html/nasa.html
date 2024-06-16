@@ -3,101 +3,129 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>NASA Image and Video Library</title>
+        <title>NASA Api</title>
         <link rel="stylesheet" href="../css/planets.css" />
+        <link rel="stylesheet" type="text/css" href="../css/footer.css" />
     </head>
     <body>
-       <section className="nasa">
-        <header>
-            <nav id="mainNav"></nav>
-        </header>
-        <a href="#" class="closeButton" id="closeButton">&times;</a>
-        <div class="imgDiv">
-            <img src="/img/shuttle.gif" alt="Earth" class="shuttle3" />
-        </div>
-        <div class="nasa-library-container">
-            <h2>NASA Image and Video Library</h2>
-            <input type="text" id="searchInput" placeholder="Search..." />
-            <button id="searchButton">Search</button>
-            <p id="loadingMessage" style="display: none">Loading...</p>
-            <p id="errorMessage" class="error-message" style="display: none">
-                An error occurred. Please try again.
-            </p>
-            <div class="items-grid" id="itemsGrid"></div>
-        </div>
-       </section>
+        <section class="nasa">
+            <header>
+                <nav id="mainNav"></nav>
+            </header>
+            <a href="#" onclick="zoomOut(event)" class="closeButton">&times;</a>
+            <div class="imgDiv">
+                <img src="../img/shuttle.gif" alt="Earth" class="shuttle3" />
+            </div>
+            <div class="nasa-library-container">
+                <h2>NASA Image and Video Library</h2>
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search..."
+                    value="mars"
+                />
+                <button onclick="fetchItems()">Search</button>
+                <p id="loadingMessage" style="display: none">Loading...</p>
+                <p
+                    id="errorMessage"
+                    class="error-message"
+                    style="display: none"
+                >
+                    An error occurred. Please try again.
+                </p>
+                <div id="itemsGrid" class="items-grid"></div>
+            </div>
+            <footer class="footer" id="myFooter" style="position: relative">
+                <div>
+                    <p>Made with ❤️ and +60 ☕ in 2024</p>
+                    <a href="../files/cv.pdf" download class="cv">
+                        Download CV <i class="fa-solid fa-download"></i>
+                    </a>
+                    <div class="social-links">
+                        <span> my </span>
+                        <a
+                            href="https://github.com/danijounblat1"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-github fa-2x"></i>
+                        </a>
+                        <span> and my </span>
+                        <a
+                            href="https://www.linkedin.com/in/dani-jounblat-b80075301?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-linkedin fa-2x"></i>
+                        </a>
+                    </div>
+                    <p class="footer-title">
+                        Copyrights @ <span>Dani Jounblat</span>
+                    </p>
+                </div>
+            </footer>
+        </section>
+
         <script>
-            document.addEventListener("DOMContentLoaded", () => {
+            // nasa-library.js
+            document.addEventListener("DOMContentLoaded", function () {
+                fetchItems(); // Automatically fetch items on page load
+            });
+
+            function zoomOut(event) {
+                event.preventDefault();
+                window.location.href = "/";
+            }
+
+            function fetchItems() {
+                const searchInput = document
+                    .getElementById("searchInput")
+                    .value.trim();
                 const baseUrl = "https://images-api.nasa.gov/search";
-                const closeButton = document.getElementById("closeButton");
-                const searchInput = document.getElementById("searchInput");
-                const searchButton = document.getElementById("searchButton");
+                const itemsGrid = document.getElementById("itemsGrid");
                 const loadingMessage =
                     document.getElementById("loadingMessage");
                 const errorMessage = document.getElementById("errorMessage");
-                const itemsGrid = document.getElementById("itemsGrid");
 
-                const fetchItems = async () => {
-                    const query = searchInput.value;
-                    loadingMessage.style.display = "block";
-                    errorMessage.style.display = "none";
-                    itemsGrid.innerHTML = "";
+                loadingMessage.style.display = "block";
+                errorMessage.style.display = "none";
+                itemsGrid.innerHTML = "";
 
-                    try {
-                        const response = await fetch(`${baseUrl}?q=${query}`);
+                fetch(`${baseUrl}?q=${searchInput}`)
+                    .then(response => {
                         if (!response.ok) {
                             throw new Error("Error fetching data");
                         }
-                        const data = await response.json();
-
-                        data.collection.items.forEach((item, index) => {
-                            if (
-                                item.links &&
-                                item.links[0].href &&
-                                item.data &&
-                                item.data[0].title &&
-                                item.data[0].description
-                            ) {
+                        return response.json();
+                    })
+                    .then(data => {
+                        if (data.collection.items.length === 0) {
+                            errorMessage.textContent = "No results found.";
+                            errorMessage.style.display = "block";
+                        } else {
+                            data.collection.items.forEach(item => {
                                 const itemCard = document.createElement("div");
-                                itemCard.className = "item-card";
-
-                                const image = document.createElement("img");
-                                image.src = item.links[0].href;
-                                image.alt = item.data[0].title;
-                                image.className = "item-image";
-
-                                const title = document.createElement("h3");
-                                title.textContent = item.data[0].title;
-
-                                const description = document.createElement("p");
-                                description.textContent =
-                                    item.data[0].description;
-
-                                itemCard.appendChild(image);
-                                itemCard.appendChild(title);
-                                itemCard.appendChild(description);
-
+                                itemCard.classList.add("item-card");
+                                itemCard.innerHTML = `
+                        <img src="${item.links[0].href}" alt="${item.data[0].title}" class="item-image">
+                        <h3>${item.data[0].title}</h3>
+                        <p>${item.data[0].description}</p>
+                    `;
                                 itemsGrid.appendChild(itemCard);
-                            }
-                        });
-                    } catch (error) {
+                            });
+                        }
+                    })
+                    .catch(error => {
                         errorMessage.style.display = "block";
-                        console.error(error);
-                    } finally {
+                        console.error("Error fetching data:", error);
+                    })
+                    .finally(() => {
                         loadingMessage.style.display = "none";
-                    }
-                };
-
-                searchButton.addEventListener("click", fetchItems);
-
-                closeButton.addEventListener("click", e => {
-                    e.preventDefault();
-                    window.history.back();
-                });
-
-                // Trigger initial fetch
-                fetchItems();
-            });
+                    });
+            }
         </script>
+          <canvas id="starsCanvas"></canvas>
+        <script type="module" src="../js/starsBackground.js"></script>
+        <script async src="../js/planets.js"></script>
     </body>
 </html>
