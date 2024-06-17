@@ -12,21 +12,32 @@ html {
 body {
     background-color: #030000;
     overflow-x: hidden;
-    
 }
-#starsCanvas{
-  position: fixed;
-  top: 0;
-  z-index: -1;
+.shuttle {
+
+    position: absolute;
+    width: 50%;
+    
+    overflow: hidden;
+    left: 60%;
+    top: 100%;
+}
+.shuttle img {
+    width: 100%;
+    height: auto;
+}
+#starsCanvas {
+    position: fixed;
+    top: 0;
+    z-index: -1;
 }
 .blur {
     width: 100%;
     height: 30rem;
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
-    top: 35%;
+    top: 40%;
     filter: blur(10px);
-    display: none;
 }
 .blackhole {
     width: 100%;
@@ -38,7 +49,6 @@ body {
     object-fit: cover;
     z-index: -20;
     filter: brightness(0.8);
-    
 }
 
 #all {
@@ -64,8 +74,8 @@ body.no-scroll {
     align-items: center;
     justify-content: center;
     z-index: 2;
-    top: 10%;
-    left: 50%;
+    top: 40%;
+    left: 60%;
 }
 
 .FirstNames,
@@ -372,7 +382,8 @@ body.no-scroll {
     html {
         font-size: 6px;
     }
-
+.shuttle {
+display: none;}
     .blackhole {
         width: 100%;
         height: 100%;

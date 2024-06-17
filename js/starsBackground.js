@@ -53,7 +53,7 @@ function init() {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x000000, 0); // Set background to transparent
 
-    const numStars = 4000;
+    const numStars = 5000;
     const positions = new Float32Array(numStars * 3);
     const colors = new Float32Array(numStars * 3);
     const sizes = new Float32Array(numStars);
@@ -79,7 +79,7 @@ function init() {
         colors[i * 3 + 1] = color[1]; // g
         colors[i * 3 + 2] = color[2]; // b
 
-        sizes[i] = Math.random() * 0.01; // size
+        sizes[i] = Math.random() * 0.011; // size
     }
 
     const geometry = new THREE.BufferGeometry();
@@ -128,4 +128,44 @@ window.addEventListener("resize", () => {
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
     renderer.setSize(window.innerWidth, window.innerHeight);
+});
+// button//
+document.addEventListener("DOMContentLoaded", function () {
+    const audio = document.getElementById("backgroundAudio");
+    const playPauseBtn = document.getElementById("playPauseBtn");
+    const playPauseIcon = document.getElementById("playPauseIcon");
+    let isPlaying = true;
+
+    const handlePlayPause = () => {
+        if (isPlaying) {
+            audio.pause();
+            playPauseIcon.classList.remove("fa-pause");
+            playPauseIcon.classList.add("fa-play");
+        } else {
+            audio.play();
+            playPauseIcon.classList.remove("fa-play");
+            playPauseIcon.classList.add("fa-pause");
+        }
+        isPlaying = !isPlaying;
+    };
+
+    playPauseBtn.addEventListener("click", handlePlayPause);
+
+    // Autoplay handling
+    const playPromise = audio.play();
+    if (playPromise !== undefined) {
+        playPromise
+            .then(_ => {
+                // Autoplay started
+            })
+            .catch(error => {
+                // Autoplay was prevented, let's start the audio when the user interacts with the page
+                document.addEventListener("click", startAudio);
+            });
+    }
+
+    const startAudio = () => {
+        audio.play();
+        document.removeEventListener("click", startAudio);
+    };
 });

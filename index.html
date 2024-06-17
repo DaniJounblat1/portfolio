@@ -58,6 +58,10 @@
                         />
                     </div>
                 </div>
+
+                <div class="shuttle">
+                    <img src="./img/shuttle3.png" />
+                </div>
                 <div class="planets" id="planets">
                     <div class="sunCon" id="sunCon" onclick="toggleSunlight()">
                         <img
@@ -178,6 +182,12 @@
             </footer>
         </div>
         <canvas id="starsCanvas"></canvas>
+        <button id="playPauseBtn" class="play-pause-btn">
+            <i id="playPauseIcon" class="fas fa-pause"></i>
+        </button>
+
+        <audio id="backgroundAudio" src="../files/sound.m4a" loop></audio>
+
         <script type="module" src="./js/starsBackground.js"></script>
         <script src="./js/index.js"></script>
     </body>

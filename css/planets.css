@@ -17,681 +17,697 @@ body {
     background-color: #030000;
     overflow-x: hidden !important;
 }
-#starsCanvas{
-  position: fixed;
-  top: 0;
-  z-index: -1;
+#starsCanvas {
+    position: fixed;
+    top: 0;
+    z-index: -1;
 }
 .fas,
 .fab {
- color: #682ae9;
-    margin-right: 8px;   
+    color: #682ae9;
+    margin-right: 8px;
 }
 section {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 .imgDiv {
-    position: fixed;
-    z-index: -2;
-    top: -10%;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: imgMove 1.5s;
-    overflow: hidden;
+  position: fixed;
+  z-index: -2;
+  top: -10%;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: imgMove 1.5s;
+  overflow: hidden;
 }
 
 .imgDiv .earthImg,
 .imgDiv .venusImg,
 .imgDiv .mercuryImg {
-    z-index: -1;
-    border-radius: 50%;
+  z-index: -1;
+  border-radius: 50%;
 }
 
 @keyframes imgMove {
-    0% {
-        transform: translate(-50%, 45%) scale(1.7);
-    }
-    100% {
-        transform: translate(-50%, 0%) scale(1);
-    }
+  0% {
+    transform: translate(-50%, 45%) scale(1.7);
+  }
+  100% {
+    transform: translate(-50%, 0%) scale(1);
+  }
 }
 
 .closeButton {
-    position: fixed !important;
-    top: 2%;
-    right: 0;
-    width: 8rem;
-    height: 8rem;
-    line-height: 20px;
-    text-align: center;
-    cursor: pointer;
-    font-size: 8rem !important;
-    text-decoration: none;
-    color: #682ae9;
+  position: fixed !important;
+  top: 2%;
+  right: 0;
+  width: 8rem;
+  height: 8rem;
+  line-height: 20px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 8rem !important;
+  text-decoration: none;
+  color: #682ae9;
 }
 
 nav {
-    background-color: black;
-    height: 2.7rem;
-    width: 100%;
-    top: -1vh;
-    position: fixed;
-    filter: blur(5px);
-    opacity: 0;
-    transition: opacity 0.3s linear;
+  background-color: black;
+  height: 2.7rem;
+  width: 100%;
+  top: -1vh;
+  position: fixed;
+  filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.3s linear;
 }
 
 .earthSection {
-    padding: 10px 30px 10px 10px;
+  padding: 10px 30px 10px 10px;
 }
 
 .earthSection .imgDiv {
-    width: 35rem;
-    height: 35rem;
+  width: 35rem;
+  height: 35rem;
 }
 
 .earthSection .imgDiv .earthImg {
-    width: 36rem;
-    height: auto;
+  width: 36rem;
+  height: auto;
 }
 
 .earthSection .clouds {
-    position: fixed;
-    bottom: 10%;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: -1;
+  position: fixed;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: -1;
 }
 
 .earthSection .clouds .cloud {
-    position: absolute;
-    width: 100vw;
-    opacity: 0.6;
-    filter: brightness(1);
+  position: absolute;
+  width: 100vw;
+  opacity: 0.6;
+  filter: brightness(1);
 }
 
 .earthSection .clouds .cloud.cloud1 {
-    right: 10%;
-    z-index: 1;
+  right: 10%;
+  z-index: 1;
 }
 
 .earthSection .clouds .cloud.cloud2 {
-    left: 10%;
-    top: 0;
-    z-index: 2;
+  left: 10%;
+  top: 0;
+  z-index: 2;
 }
 
 .earthSection .clouds .cloud.cloud3 {
-    left: 10%;
-    z-index: 3;
+  left: 10%;
+  z-index: 3;
 }
 
 .earthSection .skillsContainer {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
 .earthSection .skillsContainer .languages p {
-    color: #ffffff;
-    padding: 8px;
-    border-radius: 5px;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 5px;
 }
 
 .earthSection .skillsContainer .column p {
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    display: flex;
-    flex: 0 0 100%;
-    align-items: center;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  flex: 0 0 100%;
+  align-items: center;
 }
 
 .earthSection .skillsContainer .column p:hover {
-    transform: scale(1.1);
-    transition: 0.5s ease-out;
+  transform: scale(1.1);
+  transition: 0.5s ease-out;
 }
 
-
+.earthSection .skillsContainer .fa-download,
+.earthSection .skillsContainer .fa-brands,
+.earthSection .skillsContainer .fa-solid {
+  color: #682ae9;
+  margin-right: 8px;
+}
 
 .earthSection span,
 .earthSection strong {
-    color: #682ae9;
+  color: #682ae9;
 }
 
 .earthSection strong {
-    margin-bottom: 5px;
-    font-size: 10.3rem;
+  margin-bottom: 5px;
+  font-size: 10.3rem;
 }
 
 .fa-download,
 .fa-brands,
 .fa-solid {
-    color: #682ae9;
+  color: #682ae9;
 }
 
 .pTitle {
-    color: #682ae9;
+  color: #682ae9;
 }
 
 .venusSection {
-    padding: 0 20px 0 10px;
+  padding: 0 20px 0 10px;
 }
 
 .venusSection strong {
-    display: block;
-    margin-bottom: 10px;
-    margin-top: 20px;
-    color: #682ae9;
-    font-size: 4rem;
+  display: block;
+  margin-bottom: 10px;
+  margin-top: 20px;
+  color: #682ae9;
+  font-size: 4rem;
 }
 
 .venusSection p {
-    font-size: 3rem;
+  font-size: 3rem;
 }
 
 .venusSection .mainTitle {
-    font-size: 5rem;
+  font-size: 5rem;
 }
 
 .venusSection .imgDiv {
-    width: 35rem;
-    height: 35rem;
-    border-radius: 50%;
-    overflow: hidden;
-    transform: translate(-50%) rotate(180deg);
-    animation: venusImgMove 1.5s;
+  width: 35rem;
+  height: 35rem;
+  border-radius: 50%;
+  overflow: hidden;
+  transform: translate(-50%) rotate(180deg);
+  animation: venusImgMove 1.5s;
 }
 
 .venusSection .imgDiv .venusImg {
-    width: 49rem;
-    height: 37rem;
+  width: 49rem;
+  height: 37rem;
 }
 
 @keyframes venusImgMove {
-    0% {
-        transform: translate(-50%, 35%) scale(1.3) rotate(180deg);
-    }
-    100% {
-        transform: translate(-50%, 0%) scale(1) rotate(180deg);
-    }
+  0% {
+    transform: translate(-50%, 35%) scale(1.3) rotate(180deg);
+  }
+  100% {
+    transform: translate(-50%, 0%) scale(1) rotate(180deg);
+  }
 }
 
 .mercurySection .imgDiv {
-    width: 35rem;
-    height: 35rem;
+  width: 35rem;
+  height: 35rem;
 }
 
 .mercurySection .imgDiv .mercuryImg {
-    width: 37rem;
-    height: 37rem;
-    transition: transform 0.3s ease-out;
+  width: 37rem;
+  height: 37rem;
+  transition: transform 0.3s ease-out;
 }
 
 .mercurySection .mainTitle {
-    padding: 0 0 0 15px;
+  padding: 0 0 0 15px;
 }
 
 .mercurySection .laptop-container {
-    position: relative;
+  position: relative;
 }
 
 .mercurySection .laptop-container img {
-    width: 80%;
-    height: auto;
-    position: relative;
+  width: 80%;
+  height: auto;
+  position: relative;
 }
 
 .mercurySection .slideshow-root {
-    width: 59%;
-    height: 48%;
-    margin: 0 auto;
-    position: absolute;
-    top: 31%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    overflow: hidden !important;
+  width: 59%;
+  height: 48%;
+  margin: 0 auto;
+  position: absolute;
+  top: 31%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  overflow: hidden !important;
 }
 
 .mercurySection .slideshow-root .imgCon {
-    width: 100%;
-    height: 100%;
-    background-color: white;
-    overflow: hidden !important;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  overflow: hidden !important;
 }
 
 .mercurySection .slideshow-root .imgCon .slideshow-image {
-    width: 100%;
-    max-height: auto;
-    overflow: hidden;
+  width: 100%;
+  max-height: auto;
+  overflow: hidden;
 }
 
 .mercurySection .projectSection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    animation: projectMove 2s alternate;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: projectMove 2s alternate;
 }
 
 @keyframes projectMove {
-    0% {
-        transform: translateX(-90%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0%);
-        opacity: 1;
-    }
+  0% {
+    transform: translateX(-90%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
 }
 
 .mercurySection .projectItem {
-    background-color: rgba(211, 211, 211, 0.1);
-    border-radius: 10px;
-    box-shadow: 0 0px 8px black;
-    padding: 20px;
-    max-width: 600px;
-    text-align: center;
+  background-color: rgba(211, 211, 211, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0px 8px black;
+  padding: 20px;
+  max-width: 600px;
+  text-align: center;
 }
 
 .mercurySection .projectTitle {
-    font-size: 2.5rem;
-    margin-top: 10px;
-    color: #682ae9;
+  font-size: 2.5rem;
+  margin-top: 10px;
+  color: #682ae9;
 }
 
 .mercurySection .projectInfo {
-    font-size: 1.8rem;
-    color: white;
-    margin: 10px 0;
+  font-size: 1.8rem;
+  color: white;
+  margin: 10px 0;
 }
 
 .mercurySection .linkContainer {
-    margin-right: 3rem;
+  margin-right: 3rem;
 }
 
 .mercurySection .githubLink {
-    display: inline-block;
-    width: 6rem;
-    font-size: 2rem;
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #682ae9;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-left: 3rem;
-    transition: background-color 0.3s ease;
+  display: inline-block;
+  width: 6rem;
+  font-size: 2rem;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #682ae9;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  margin-left: 3rem;
+  transition: background-color 0.3s ease;
 }
 
 .mercurySection .githubLink:hover {
-    background-color: black;
+  background-color: black;
 }
 
 .pTitle {
-    font-size: 4rem;
-    margin-top: 5%;
+  font-size: 4rem;
+  margin-top: 5%;
 }
 
 .mainTitle {
-    font-size: 5rem;
-    color: #682ae9;
-    font-weight: bold;
-    margin-top: 25rem;
+  font-size: 5rem;
+  color: #682ae9;
+  font-weight: bold;
+  margin-top: 25rem;
 }
 
 section p,
 section li {
-    color: #fff;
-    font-size: 3rem;
-    margin-bottom: 5rem;
-    mix-blend-mode: difference;
-    animation: move 3s alternate;
+  color: #fff;
+  font-size: 3rem;
+  margin-bottom: 5rem;
+  mix-blend-mode: difference;
+  animation: move 3s alternate;
 }
 
 @keyframes move {
-    0% {
-        transform: translateY(-90%);
-        opacity: 0;
-    }
-    100% {
-        transform: translateY(0%);
-        opacity: 1;
-    }
+  0% {
+    transform: translateY(-90%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
 }
 
 .cv {
-    color: #682ae9;
-    text-decoration: none;
-    font-size: 3rem;
+  color: #682ae9;
+  text-decoration: none;
+  font-size: 3rem;
 }
 
 .cv:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .contact .imgDiv {
-    transform: translate(-50%, 0) rotate(-60deg);
-    animation: satelliteMove 2s;
-    width: 40rem;
-    border-radius: 0;
+  transform: translate(-50%, 0) rotate(-60deg);
+  animation: satelliteMove 2s;
+  width: 40rem;
+  border-radius: 0;
 }
 
 .contact .imgDiv .satellite {
-    max-width: 35rem;
+  max-width: 35rem;
 }
 
 @keyframes satelliteMove {
-    0% {
-        transform: translate(-50%, 45%) scale(1) rotate(-60deg);
-    }
-    100% {
-        transform: translate(-50%, 0%) scale(1) rotate(-60deg);
-    }
+  0% {
+    transform: translate(-50%, 45%) scale(1) rotate(-60deg);
+  }
+  100% {
+    transform: translate(-50%, 0%) scale(1) rotate(-60deg);
+  }
 }
 
 .contact-container {
-    width: 80%;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    background-color: rgba(211, 211, 211, 0.1);
-    border-radius: 10px;
-    box-shadow: 0 0px 8px black;
-    padding: 20px;
-    max-width: 600px;
-    text-align: center;
-    margin-top: 60%;
+  width: 80%;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-color: rgba(211, 211, 211, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 0px 8px black;
+  padding: 20px;
+  max-width: 600px;
+  text-align: center;
+  margin-top: 60%;
 }
 
 .contact-container h1 {
-    color: #682ae9;
-    font-size: 5rem;
+  color: #682ae9;
+  font-size: 5rem;
 }
 
 .contact-container form {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    width: 300px;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 300px;
+  margin: auto;
 }
 
 .contact-container label {
-    font-size: 3rem;
-    color: #682ae9;
-    display: flex;
-    margin-left: 2rem;
+  font-size: 3rem;
+  color: #682ae9;
+  display: flex;
+  margin-left: 2rem;
 }
 
 .contact-container input,
 .contact-container textarea {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 90%;
-    height: auto;
-    margin-top: 2rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 90%;
+  height: auto;
+  margin-top: 2rem;
 }
 
 .contact-container .sentMessage {
-    color: #682ae9;
-    font-size: 4rem;
+  color: #682ae9;
+  font-size: 4rem;
 }
 
 .contact-container button {
-    padding: 0.5rem;
-    border: none;
-    border-radius: 4px;
-    background-color: #682ae9;
-    color: white;
-    cursor: pointer;
-    width: 30%;
-    margin-top: 2rem;
-    margin-left: 2rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #682ae9;
+  color: white;
+  cursor: pointer;
+  width: 30%;
+  margin-top: 2rem;
+  margin-left: 2rem;
 }
 
 .contact-container button:hover {
-    background-color: black;
+  background-color: black;
 }
 
 .nasa .imgDiv {
-    width: 45rem;
-    height: 45rem;
-    overflow: visible;
-    animation: nasaMove 1.5s;
+  width: 45rem;
+  height: 45rem;
+  overflow: visible;
+  animation: nasaMove 1.5s;
 }
 
 .nasa .imgDiv img {
-    max-width: 60rem;
-    transform: rotate(60deg);
+  max-width: 60rem;
+  transform: rotate(60deg);
 }
 
 @keyframes nasaMove {
-    0% {
-        transform: translate(-50%, 45%) scale(1.1);
-    }
-    100% {
-        transform: translate(-50%, 0%) scale(1);
-    }
+  0% {
+    transform: translate(-50%, 45%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, 0%) scale(1);
+  }
 }
 
 .nasa .nasa-library-container {
-    mix-blend-mode: normal;
-    width: 100vw;
-    margin: 0 auto;
-    margin-top: 50%;
-    padding: 2rem;
-    text-align: center;
-    background-color: rgba(211, 211, 211, 0.1);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  mix-blend-mode: normal;
+  width: 100vw;
+  margin: 0 auto;
+  margin-top: 50%;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(211, 211, 211, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .nasa .nasa-library-container input[type="text"] {
-    padding: 0.5rem;
-    font-size: 2rem;
-    margin: 2rem 0;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    width: 80%;
+  padding: 0.5rem;
+  font-size: 2rem;
+  margin: 2rem 0;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  width: 80%;
 }
 
 .nasa .nasa-library-container button {
-    padding: 0.5rem 1rem;
-    font-size: 1rem;
-    background-color: #682ae9;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    margin-left: 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: #682ae9;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 2rem;
 }
 
 .nasa .nasa-library-container button:hover {
-    background-color: black;
+  background-color: black;
 }
 
 .nasa .nasa-library-container .items-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
 }
 
 .nasa .nasa-library-container .item-card {
-    background: rgba(211, 211, 211, 0.1);
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    text-align: left;
+  background: rgba(211, 211, 211, 0.1);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  text-align: left;
 }
 
 .nasa .nasa-library-container .item-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  margin: 0 auto;
 }
 
 .nasa .nasa-library-container h2 {
-    color: #682ae9;
-    font-size: 3rem;
-    padding: 0 3rem 0 0;
+  color: #682ae9;
+  font-size: 3rem;
+  padding: 0 3rem 0 0;
 }
 
 .nasa .nasa-library-container h3 {
-    font-size: 1.2rem;
-    margin: 0.5rem 0;
-    color: #682ae9;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: #682ae9;
 }
 
 .nasa .nasa-library-container p {
-    font-size: 1rem;
-    color: white;
-    animation: none;
+  font-size: 1rem;
+  color: white;
+  animation: none;
 }
 
 /* Blog.css */
 .blogCon {
-    padding: 2rem;
-    max-width: 800px;
-    margin: 0 auto;
-    margin-top: 40%;
+  padding: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 40%;
 }
 
 .blogCon p {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .blogCon .imgDiv {
-    top: 0;
-    border-radius: 0;
-    animation: ufoMove 1.5s;
+  top: 0;
+  border-radius: 0;
+  animation: ufoMove 1.5s;
 }
 
 .blogCon .imgDiv img {
-    width: 40rem;
-    height: auto;
+  width: 40rem;
+  height: auto;
 }
 
 @keyframes ufoMove {
-    0% {
-        transform: translate(-50%, 25%) scale(1.6);
-    }
-    100% {
-        transform: translate(-50%, 0%) scale(1);
-    }
+  0% {
+    transform: translate(-50%, 25%) scale(1.6);
+  }
+  100% {
+    transform: translate(-50%, 0%) scale(1);
+  }
 }
 
 .blogCon .mainTitle {
-    margin: 0 0 3rem 0;
+  margin: 0 0 3rem 0;
 }
 
 .blogCon .post {
-    border: 1px solid #ddd;
-    padding: 2rem;
-    border-radius: 8px;
-    background-color: rgba(211, 211, 211, 0.1);
-    box-shadow: 0 0px 8px black;
-    overflow: hidden;
-    transition:
-        max-height 0.3s ease,
-        padding 0.3s ease;
-    max-height: auto;
-    color: white;
+  border: 1px solid #ddd;
+  padding: 2rem;
+  border-radius: 8px;
+  background-color: rgba(211, 211, 211, 0.1);
+  box-shadow: 0 0px 8px black;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  max-height: auto;
+  color: white;
 }
 
 .blogCon .post.expanded {
-    max-height: 2000px;
-    padding-bottom: 2rem;
+  max-height: 2000px;
+  padding-bottom: 2rem;
 }
 
 .blogCon .blogsTitle {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    text-align: center;
-    color: #682ae9;
-    position: block;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+  color: #682ae9;
+  position: block;
 }
 
 .blogCon .date {
-    color: #888;
-    margin-bottom: 1.5rem;
-    text-align: center;
+  color: #888;
+  margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 .blogCon .intro {
-    font-size: 1.1rem;
-    line-height: 1.6;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }
 
 .blogCon .transition {
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
 }
 
 .blogCon .fullContent {
-    font-size: 1rem;
-    line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
 .blogCon .fullContent h2,
 .blogCon .fullContent h3 {
-    margin-top: 1.5rem;
+  margin-top: 1.5rem;
 }
 
 .blogCon .fullContent img {
-    display: block;
-    margin: 1rem 0;
+  display: block;
+  margin: 1rem 0;
 }
 
 .blogCon .fullContent a {
-    color: #0070f3;
-    text-decoration: none;
+  color: #0070f3;
+  text-decoration: none;
 }
 
 .blogCon .fullContent a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 .blogCon .fullContent code {
-    background: #f5f5f5;
-    padding: 0.2rem 0.4rem;
-    border-radius: 4px;
+  background: #f5f5f5;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
 }
 
 .blogCon .fullContent pre {
-    background: #f5f5f5;
-    padding: 1rem;
-    border-radius: 8px;
-    overflow-x: auto;
+  background: #f5f5f5;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
 }
 
 .blogCon .readMore {
-    display: block;
-    width: 100%;
-    padding: 1rem;
-    background-color: #682ae9;
-    color: #fff;
-    text-align: center;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    margin-top: 1rem;
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #682ae9;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1rem;
 }
 
 .blogCon .readMore:hover {
-    background-color: black;
+  background-color: black;
+}
+
+@media only screen and (min-width: 768px) {
+  .contact-container {
+    margin-top: 30%;
+    height: auto;
+  }
+  .nasa-library-container {
+    margin-top: 30% !important;
+  }
+  .blogCon {
+    margin-top: 20% !important;
+  }
 }
