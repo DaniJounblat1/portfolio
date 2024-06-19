@@ -35,7 +35,7 @@ If you've deployed your portfolio website to a hosting platform, you can add ins
 
 **Example:**
 
-1. Visit the following URL: https://your-username.github.io/portfolio/
+1. Visit the following URL: https://github.com/DaniJounblat1/nextjs-portfolio.git
 
 **Note:** Replace `your-username` with your actual GitHub username.
 
